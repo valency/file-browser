@@ -26,5 +26,5 @@ Other settings:
 ``` 
 
 ## Screenshots
-![PC](img/pc.png){width=70%}
-![Mobile](img/mobile.png){width=30%}
+![Mobile](img/mobile.png)
+![PC](img/pc.png)
