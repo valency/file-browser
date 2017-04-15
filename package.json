@@ -1,7 +1,7 @@
 {
   "name": "beautiful-file-browser",
   "author": "Ye Ding",
-  "version": "0.4.15",
+  "version": "0.4.15f",
   "description": "This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
   "keywords": [
     "filebrowser",
@@ -10,7 +10,7 @@
     "fileshare"
   ],
   "bin": {
-    "file-browser": "./index.js"
+    "file-browser-nice": "./index.js"
   },
   "homepage": "https://github.com/valency/file-browser",
   "repository": {
