@@ -1,26 +1,30 @@
-file-browser
-============
-file-browser is a utility to browse files on your file system using your browser. Its equivalent of creating a file share that can be accessed over http. Using this you can share files between different machines, and across different operating systems. 
+# Beautiful Node.js File Browser
 
-## How to install
-```js
-  npm -g install file-browser
+This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems. 
+
+## Installation
+
+```
+npm -g install file-browser-nice
 ```
 
 ## How to Run
+
 Change directory to the directory you want to browse. Then run the following command in that directory.
-```js
-  file-browser
+
 ```
-You would see the message <b>Please open the link in your browser http://<YOUR-IP>:8088</b> in your console. Now you can point your browser to your IP. 
-For localhost access the files over http://127.0.0.1:8088 
+file-browser-nice
+```
 
-file-browser supports following command line switches for additional functinality.
+You would see the message "*Please open the link in your browser http://<YOUR-IP>:7000*" in your console.
 
-```js
-    -p, --port <port>        Port to run the file-browser. Default value is 8088
-    -e, --exclude <exclude>  File extensions to exclude. To exclude multiple extension pass -e multiple times. e.g. ( -e .js -e .cs -e .swp)
+Other settings:
+
+```
+-p, --port <port>        Port to run the file browser. Default value is 7000.
+-e, --exclude <exclude>  File extensions to exclude. To exclude multiple extensions, pass -e multiple times. e.g.: -e .js -e .cs -e .swp.
 ``` 
 
-## ScreenShot
-<img src="https://raw.githubusercontent.com/sumitchawla/file-browser/master/file-browser.png"/>
+## Screenshots
+![PC](img/pc.png){width=70%}
+![Mobile](img/mobile.png){width=30%}

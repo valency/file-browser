@@ -1,19 +1,65 @@
-body { left:10%;width:80%;position:absolute; top:10%; color: black!important;}
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: black !important;
+}
 
-.mainpanel { height:90%;min-height:400px;}
+.mainpanel {
+    height: 100%;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
 
-.linksholder ul { list-style-type: none; }
+.linksholder ul {
+    list-style-type: none;
+}
 
-.linksholder li { font-size: 16px; line-height: 1.5em;}
+.linksholder li {
+    font-size: 16px;
+    line-height: 1.5em;
+}
 
-.linksholder li .fa { margin-right: 5px; }
+.linksholder li .fa {
+    margin-right: 5px;
+}
 
-.linksholder a { color : black;}
+.linksholder a {
+    color: black;
+}
 
-.linksholder .fa { color: black;}
+.linksholder .fa {
+    color: black;
+}
 
-.dataTables_filter label { float: right; font-weight:normal; position: absolute; top : 10px; right: 5px; }
+.dataTables_filter label {
+    float: right;
+    font-weight: normal;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 
-.dataTables_info { margin-top: 10px; background: ghostwhite; }
+.dataTables_filter label input {
+    margin-left: 5px;
+    border: 1px solid black;
+    line-height: 1em;
+    font-size: 1em;
+    padding: 0 3px;
+}
 
-.up { margin-left: 20px; border:solid 1px black; cursor:pointer; width:100px; padding-left: 10px; padding-right:10px; }
+.dataTables_info {
+    margin-top: 10px;
+    background: ghostwhite;
+}
+
+.up {
+    margin-left: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

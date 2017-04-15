@@ -1,8 +1,8 @@
 {
-  "name": "file-browser",
-  "author": "Sumit Chawla",
-  "version": "0.0.5",
-  "description": "file-browser is a utility to browse files on your file system using your browser. Its equivalent of creating a file share that can be accessed over http",
+  "name": "beautiful-file-browser",
+  "author": "Ye Ding",
+  "version": "0.4.15",
+  "description": "This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
   "keywords": [
     "filebrowser",
     "file browser",
@@ -12,22 +12,22 @@
   "bin": {
     "file-browser": "./index.js"
   },
-  "homepage": "https://github.com/sumitchawla/file-browser",
+  "homepage": "https://github.com/valency/file-browser",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sumitchawla/file-browser.git"
+    "url": "https://github.com/valency/file-browser.git"
   },
   "dependencies": {
     "express": "~4.4",
-    "lodash" : "~2.4",
-    "commander" : "~2.3"
+    "lodash": "~2.4",
+    "commander": "~2.3"
   },
   "devDependencies": {
     "mocha": "1.20.1"
   },
-  "main": "file-browser",
+  "main": "file-browser-nice",
   "bugs": {
-    "url": "https://github.com/sumitchawla/file-browser/issues"
+    "url": "https://github.com/valency/file-browser/issues"
   },
   "scripts": {
     "test": "mocha test.js"
