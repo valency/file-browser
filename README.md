@@ -5,12 +5,12 @@ This project is a web-based file browser for browsing and downloading files on y
 ## Installation
 
 ```
-npm -g install file-browser-nice
+npm install -g file-browser-nice
 ```
 
-## How to Run
+## Usage
 
-Change directory to the directory you want to browse. Then run the following command in that directory.
+Navigate to the directory you want to browse. Then run the following command in that directory.
 
 ```
 file-browser-nice
