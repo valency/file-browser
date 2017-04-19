@@ -1,13 +1,11 @@
 {
-  "name": "beautiful-file-browser",
+  "name": "file-browser-nice",
   "author": "Ye Ding",
-  "version": "0.4.15f",
+  "version": "0.4.19",
   "description": "This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
   "keywords": [
-    "filebrowser",
     "file browser",
-    "file share",
-    "fileshare"
+    "file share"
   ],
   "bin": {
     "file-browser-nice": "./index.js"
