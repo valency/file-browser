@@ -1,4 +1,4 @@
-# Beautiful Node.js File Browser
+# Node.js File Browser
 
 This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems. 
 
