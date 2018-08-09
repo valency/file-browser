@@ -1,10 +1,10 @@
 {
-  "name": "vfile",
-  "version": "0.8.9",
-  "description": "vFile is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
-  "main": "vfile",
+  "name": "vfiles",
+  "version": "0.8.10",
+  "description": "vFiles is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
+  "main": "vfiles",
   "bin": {
-    "vfile": "index.js"
+    "vfiles": "index.js"
   },
   "repository": {
     "type": "git",

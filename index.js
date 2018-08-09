@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const express = require('express');
 const moment = require('moment');
 const colors = require('colors/safe');
