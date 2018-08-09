@@ -1,11 +1,11 @@
-# Node.js File Browser
+# vFile: A Node.js File Browser
 
-This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems. 
+vFile is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems. 
 
 ## Installation
 
 ```
-npm install -g file-browser-nice
+npm install -g vfile
 ```
 
 ## Usage
@@ -13,18 +13,10 @@ npm install -g file-browser-nice
 Navigate to the directory you want to browse. Then run the following command in that directory.
 
 ```
-file-browser-nice
+vfile 7000
 ```
 
-You would see the message "*Please open the link in your browser http://<YOUR-IP>:7000*" in your console.
-
-Other settings:
-
-```
--p, --port <port>        Port to run the file browser. Default value is 7000.
--e, --exclude <exclude>  File extensions to exclude. To exclude multiple extensions, pass -e multiple times. e.g.: -e .js -e .cs -e .swp.
-``` 
+Then you can browse your files at: http://127.0.0.1:7000
 
 ## Screenshots
-![Mobile](img/mobile.png)
-![PC](img/pc.png)
+![vFile](https://www.avatarsys.org/api/img/data/2018-08-09/upload_fb1bc0b80596a03cb774e5e97e2ab626.png)

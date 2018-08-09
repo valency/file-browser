@@ -1,34 +1,28 @@
 {
-  "name": "file-browser-nice",
-  "author": "Ye Ding",
-  "version": "0.4.19a",
-  "description": "This project is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
+  "name": "vfile",
+  "version": "0.8.9",
+  "description": "vFile is a web-based file browser for browsing and downloading files on your file system. Using this you can share files between different machines, and across different operating systems.",
+  "main": "vfile",
+  "bin": {
+    "vfile": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valency/vfile.git"
+  },
   "keywords": [
     "file browser",
     "file share"
   ],
-  "bin": {
-    "file-browser-nice": "./index.js"
-  },
-  "homepage": "https://github.com/valency/file-browser",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/valency/file-browser.git"
-  },
-  "dependencies": {
-    "express": "~4.4",
-    "lodash": "~2.4",
-    "commander": "~2.3"
-  },
-  "devDependencies": {
-    "mocha": "1.20.1"
-  },
-  "main": "file-browser-nice",
+  "author": "Ye Ding",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/valency/file-browser/issues"
+    "url": "https://github.com/valency/vfile/issues"
   },
-  "scripts": {
-    "test": "mocha test.js"
-  },
-  "license": "MIT"
+  "homepage": "https://github.com/valency/vfile",
+  "dependencies": {
+    "colors": "^1.3.1",
+    "express": "^4.16.3",
+    "moment": "^2.22.2"
+  }
 }

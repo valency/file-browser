@@ -1,73 +1,74 @@
-#!/usr/bin/env node
+const express = require('express');
+const moment = require('moment');
+const colors = require('colors/safe');
+const path = require('path');
+const fs = require('fs');
 
-var http = require('http');
-var _ = require('lodash');
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
-var util = require('util');
+const dir = process.cwd();
+const app = express();
 
-var program = require('commander');
+app.use(express.static(__dirname + '/static'));
 
-function collect(val, memo) {
-    if (val && val.indexOf('.') !== 0) val = "." + val;
-    memo.push(val);
-    return memo;
+function log(msg, color) {
+    if (!color) color = colors.green;
+    console.log(color('[' + moment().format('YYYY-MM-DD HH:mm:ss') + '] ') + msg);
 }
 
-program
-    .option('-p, --port <port>', 'Port to run the file-browser. Default value is 7000')
-    .option('-e, --exclude <exclude>', 'File extensions to exclude. To exclude multiple extension pass -e multiple times. e.g. ( -e .js -e .cs -e .swp) ', collect, [])
-    .parse(process.argv);
-
-var app = express();
-var dir = process.cwd();
-app.use(express.static(dir)); // App public directory
-app.use(express.static(__dirname)); // Module directory
-var server = http.createServer(app);
-
-if (!program.port) program.port = 7000;
-
-server.listen(program.port);
-console.log("Please open the link in your browser http://<YOUR-IP>:" + program.port);
-
-app.get('/files', function (req, res) {
-    var currentDir = dir;
-    var query = req.query.path || '';
-    if (query) currentDir = path.join(dir, query);
-    console.log("browsing ", currentDir);
-    fs.readdir(currentDir, function (err, files) {
-        if (err) {
-            throw err;
-        }
-        var data = [];
-        files
-            .filter(function (file) {
-                return true;
-            }).forEach(function (file) {
-            try {
-                if (file.indexOf('.') !== 0) {
-                    var isDirectory = fs.statSync(path.join(currentDir, file)).isDirectory();
-                    if (isDirectory) {
-                        data.push({Name: file, IsDirectory: true, Path: path.join(query, file)});
-                    } else {
-                        var ext = path.extname(file);
-                        if (!program.exclude || !_.contains(program.exclude, ext)) {
-                            data.push({Name: file, Ext: ext, IsDirectory: false, Path: path.join(query, file)});
-                        }
-                    }
-                }
-            } catch (e) {
-                console.log(e);
-            }
-        });
-        data = _.sortBy(data, function (f) {
-            return f.Name
-        });
-        res.json(data);
-    });
+app.get('/g/*', function (req, res) {
+    if (req.params['0']) {
+        res.sendFile(path.join(dir, req.params['0']));
+    } else {
+        res.redirect('../');
+    }
 });
 
-app.get('/', function (req, res) {
-    res.redirect('lib/template.html');
+app.get('/f', function (req, res) {
+    if (req.query.path && req.query.path.includes('..')) {
+        res.status(500);
+        res.send({
+            error: "Path cannot contain '..'."
+        });
+    } else {
+        let current_dir = path.join(dir, req.query.path || '');
+        log("Browsing: " + current_dir);
+        fs.readdir(current_dir, function (err, files) {
+            if (err) {
+                res.status(500);
+                res.send({
+                    error: err.toString()
+                });
+            } else {
+                let data = [];
+                files.filter(function () {
+                    return true;
+                }).forEach(function (file) {
+                    try {
+                        if (file.indexOf('.') !== 0) {
+                            data.push({
+                                name: file,
+                                ext: path.extname(file),
+                                is_dir: fs.statSync(path.join(current_dir, file)).isDirectory()
+                                // path: path.join(current_dir, file)
+                            });
+                        }
+                    } catch (e) {
+                        log(e);
+                    }
+                });
+                data.sort(function (a, b) {
+                    return a.name > b.name;
+                });
+                res.json(data);
+            }
+        });
+    }
+});
+
+let port = 7000;
+let args = process.argv.slice(2);
+if (args.length > 0) port = args[0];
+
+app.listen(port, function () {
+    log('vFile server is listening on port ' + port + '.');
+    log('Working directory: ' + dir);
 });

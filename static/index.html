@@ -1,0 +1,115 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        @font-face {
+            font-family: "vFile Mono";
+            src: url(mono.woff2) format("woff2");
+        }
+
+        body {
+            font-family: "vFile Mono", monospace;
+            font-size: small;
+            color: white;
+            background: #FBBEDE;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        a:hover {
+            color: #EA74B2;
+        }
+
+        a.block {
+            text-decoration: none;
+            padding: 0.3em;
+            line-height: 2.5em;
+        }
+
+        a.block.green {
+            background: #7FC7AF;
+        }
+
+        a.block.green:hover {
+            color: #7FC7AF;
+            background: white;
+        }
+
+        a.block.pink {
+            background: #EA74B2;
+        }
+
+        a.block.pink:hover {
+            color: #EA74B2;
+            background: white;
+        }
+
+        .main {
+            margin: 60px 30px 30px 30px;
+            max-height: 85%;
+            overflow: auto;
+        }
+
+        .path {
+            position: fixed;
+            top: 30px;
+            left: 38px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+        }
+    </style>
+    <script>
+        function query() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        $('body').ready(function () {
+            var params = query();
+            var path = '';
+            if (params.hasOwnProperty('path')) path = params.path + '/';
+            $('.path>span').html('/' + path);
+            $.get('f?path=' + path, function (resp) {
+                for (var i = 0; i < resp.length; i++) {
+                    var tag_class = 'block ' + (resp[i].is_dir ? 'green' : 'pink');
+                    var tag_href = (resp[i].is_dir ? '?path=' : '/g/') + path + resp[i].name;
+                    var tag_target = resp[i].is_dir ? '_self' : '_blank';
+                    $('.main').append('<p><a class="' + tag_class + '" href="' + tag_href + '" target="' + tag_target + '">' + resp[i].name + '</a></p>');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="path">
+    <a href="javascript:history.back()"><i class="fa fa-arrow-left"></i></a>
+    <a href="."><i class="fa fa-home"></i></a>
+    <span></span>
+</div>
+<div class="main"></div>
+<span class="footer">(C) 2013 - 2018 Themed by <a href="http://www.moeforce.com/yding/" target="_blank">Valency</a></span>
+</body>
+</html>
+
