@@ -58,7 +58,9 @@ app.get('/f', function (req, res) {
                     }
                 });
                 data.sort(function (a, b) {
-                    return a.name > b.name;
+                    if (a.is_dir && !b.is_dir) return false;
+                    else if (!a.is_dir && b.is_dir) return true;
+                    else return a.name > b.name;
                 });
                 res.json(data);
             }
