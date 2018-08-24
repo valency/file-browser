@@ -87,6 +87,7 @@
         }
 
         $('body').ready(function () {
+            document.title = 'vFiles - ' + document.location.host;
             var params = query();
             var path = '';
             if (params.hasOwnProperty('path')) path = params.path + '/';

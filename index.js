@@ -58,9 +58,9 @@ app.get('/f', function (req, res) {
                     }
                 });
                 data.sort(function (a, b) {
-                    if (a.is_dir && !b.is_dir) return false;
-                    else if (!a.is_dir && b.is_dir) return true;
-                    else return a.name > b.name;
+                    if (a.is_dir && !b.is_dir) return -1;
+                    else if (!a.is_dir && b.is_dir) return 1;
+                    else return (a.name.toLowerCase()).localeCompare(b.name.toLowerCase());
                 });
                 res.json(data);
             }
